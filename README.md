@@ -74,5 +74,3 @@ cleaned_df["target"] = y
 cleaned_df.to_csv("cleaned_data.csv", index=False)
 
 print("Data Preprocessing Completed! Cleaned data saved as cleaned_data.csv")
-
-![Image](https://github.com/user-attachments/assets/62c533b6-4745-46c7-a14b-79df49935293)
