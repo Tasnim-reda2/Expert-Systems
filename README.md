@@ -769,7 +769,272 @@ comparison_df = pd.DataFrame({
 
 print("\nModel Comparison:")
 
+
+
+
+# BOUNAS EXAMPLE 
+
+
+# Heart Disease Risk Prediction Web App
+
+This Streamlit web application predicts the risk of heart disease based on user-provided health data. It uses a pre-trained machine learning model for prediction and displays the results in an interactive interface.
+
+## Libraries
+
+The application utilizes the following Python libraries:
+
+* `streamlit`: For creating the web application.
+* `pickle`: For loading the pre-trained machine learning model.
+* `pandas`: For data manipulation and creating DataFrames.
+
+## Code Description
+
+1.  **Import Libraries:**
+
+    ```python
+    import streamlit as st
+    import pickle
+    import pandas as pd
+    ```
+
+    * Imports the necessary libraries.
+
+2.  **Load Data and Model:**
+
+    ```python
+    data = pd.read_csv(r"C:/Users/Acer/Downloads/heart (1).csv")
+    ```
+
+    * Loads the heart disease dataset from a CSV file.
+    * **Note:** The model loading part is not present in the code you provided, but it's crucial for the application to function. It should be added like `load_model = pickle.load(open('model.pkl', 'rb'))`. Make sure to replace `'model.pkl'` with the correct path to your saved model.
+
+3.  **Streamlit UI:**
+
+    ```python
+    st.title("Heart Disease Risk Prediction")
+    ```
+
+    * Sets the title of the web application.
+
+4.  **Sidebar Input Fields:**
+
+    ```python
+    st.sidebar.header("Input Health Data")
+    age = st.sidebar.number_input(...)
+    # ... other input fields ...
+    ```
+
+    * Creates input fields in the sidebar for users to enter their health data.
+    * Uses `st.sidebar.number_input` for numerical inputs and `st.sidebar.selectbox` for categorical inputs.
+
+5.  **Categorical Input Conversion:**
+
+    ```python
+    sex = 1 if sex == "Male" else 0
+    cp_mapping = {...}
+    cp = cp_mapping[cp]
+    # ... other mappings ...
+    ```
+
+    * Converts categorical inputs to numerical values using mappings. This is necessary because the machine learning model expects numerical input.
+
+6.  **Create User Data DataFrame:**
+
+    ```python
+    user_data = pd.DataFrame({
+        'age': [age],
+        # ... other features ...
+    })
+    ```
+
+    * Creates a pandas DataFrame from the user-provided data.
+
+7.  **Prediction and Output:**
+
+    ```python
+    if st.sidebar.button("Predict"):
+        prediction = load_model.predict(user_data)
+        if prediction[0] == 1:
+            st.error("High Risk of Heart Disease")
+        else:
+            st.success("Low Risk of Heart Disease")
+    ```
+
+    * When the "Predict" button is clicked, the application uses the loaded model to make a prediction based on the user's data.
+    * Displays the prediction result using `st.error` for high risk and `st.success` for low risk.
+
+8.  **Display User Input Data:**
+
+    ```python
+    st.write("### User Input Data")
+    st.write(user_data)
+    ```
+
+    * Displays the user's input data in a table format.
+
+9.  **Data Visualization (Optional):**
+
+    ```python
+    st.write("### Data Visualization")
+    st.write("Cholesterol vs Resting Blood Pressure")
+    st.scatter_chart(user_data, x='chol', y='trestbps')
+    ```
+
+    * Displays a scatter chart of cholesterol vs. resting blood pressure. This is a basic visualization and can be expanded to include more relevant charts.
+
+## Usage
+
+1.  **Install Libraries:**
+    * `pip install streamlit pandas pickle scikit-learn` (If you haven't installed scikit-learn yet.)
+
+2.  **Run the Application:**
+    * `streamlit run your_script_name.py` (Replace `your_script_name.py` with the name of your script.)
+
+3.  **Interact with the Application:**
+    * Enter the health data in the sidebar.
+    * Click the "Predict" button to get the risk prediction.
+    * View the user input data and the visualization.
+
+## Note
+
+* Ensure that the machine learning model is saved in a pickle file named "model.pkl" (or adjust the filename in the code).
+* The file path of the dataset should be correctly set.
+* More visualizations and features can be added to enhance the application.
+
 print(comparison_df)
 
 ![image](https://github.com/user-attachments/assets/b2d9b124-2c51-4abb-a39f-b97d711ef346)
+
+
+
+
+
+# BOUNS EXAMPLE
+
+
+# Heart Disease Risk Prediction Web App
+
+This Streamlit web application predicts the risk of heart disease based on user-provided health data. It uses a pre-trained machine learning model for prediction and displays the results in an interactive interface.
+
+## Libraries
+
+The application utilizes the following Python libraries:
+
+* `streamlit`: For creating the web application.
+* `pickle`: For loading the pre-trained machine learning model.
+* `pandas`: For data manipulation and creating DataFrames.
+
+## Code Description
+
+1.  **Import Libraries:**
+
+    ```python
+    import streamlit as st
+    import pickle
+    import pandas as pd
+    ```
+
+    * Imports the necessary libraries.
+
+2.  **Load Data and Model:**
+
+    ```python
+    data = pd.read_csv(r"C:/Users/Acer/Downloads/heart (1).csv")
+    ```
+
+    * Loads the heart disease dataset from a CSV file.
+    * **Note:** The model loading part is not present in the code you provided, but it's crucial for the application to function. It should be added like `load_model = pickle.load(open('model.pkl', 'rb'))`. Make sure to replace `'model.pkl'` with the correct path to your saved model.
+
+3.  **Streamlit UI:**
+
+    ```python
+    st.title("Heart Disease Risk Prediction")
+    ```
+
+    * Sets the title of the web application.
+
+4.  **Sidebar Input Fields:**
+
+    ```python
+    st.sidebar.header("Input Health Data")
+    age = st.sidebar.number_input(...)
+    # ... other input fields ...
+    ```
+
+    * Creates input fields in the sidebar for users to enter their health data.
+    * Uses `st.sidebar.number_input` for numerical inputs and `st.sidebar.selectbox` for categorical inputs.
+
+5.  **Categorical Input Conversion:**
+
+    ```python
+    sex = 1 if sex == "Male" else 0
+    cp_mapping = {...}
+    cp = cp_mapping[cp]
+    # ... other mappings ...
+    ```
+
+    * Converts categorical inputs to numerical values using mappings. This is necessary because the machine learning model expects numerical input.
+
+6.  **Create User Data DataFrame:**
+
+    ```python
+    user_data = pd.DataFrame({
+        'age': [age],
+        # ... other features ...
+    })
+    ```
+
+    * Creates a pandas DataFrame from the user-provided data.
+
+7.  **Prediction and Output:**
+
+    ```python
+    if st.sidebar.button("Predict"):
+        prediction = load_model.predict(user_data)
+        if prediction[0] == 1:
+            st.error("High Risk of Heart Disease")
+        else:
+            st.success("Low Risk of Heart Disease")
+    ```
+
+    * When the "Predict" button is clicked, the application uses the loaded model to make a prediction based on the user's data.
+    * Displays the prediction result using `st.error` for high risk and `st.success` for low risk.
+
+8.  **Display User Input Data:**
+
+    ```python
+    st.write("### User Input Data")
+    st.write(user_data)
+    ```
+
+    * Displays the user's input data in a table format.
+
+9.  **Data Visualization (Optional):**
+
+    ```python
+    st.write("### Data Visualization")
+    st.write("Cholesterol vs Resting Blood Pressure")
+    st.scatter_chart(user_data, x='chol', y='trestbps')
+    ```
+
+    * Displays a scatter chart of cholesterol vs. resting blood pressure. This is a basic visualization and can be expanded to include more relevant charts.
+
+## Usage
+
+1.  **Install Libraries:**
+    * `pip install streamlit pandas pickle scikit-learn` (If you haven't installed scikit-learn yet.)
+
+2.  **Run the Application:**
+    * `streamlit run your_script_name.py` (Replace `your_script_name.py` with the name of your script.)
+
+3.  **Interact with the Application:**
+    * Enter the health data in the sidebar.
+    * Click the "Predict" button to get the risk prediction.
+    * View the user input data and the visualization.
+
+## Note
+
+* Ensure that the machine learning model is saved in a pickle file named "model.pkl" (or adjust the filename in the code).
+* The file path of the dataset should be correctly set.
+* More visualizations and features can be added to enhance the application.
 
